@@ -4,14 +4,14 @@
 if ARGV.size <= 3 then  
   puts "Usage: $ ruby #{$0} in_fig_dir/*.png out_fig_dir/out_fig_name seq_type nx_or_ny "
   puts "       seq_type: (1) yoko => tate, (2) tate => yoko"
-  puts "(e.g): $ ruby #{$0} 'in_fig_dir/*.png' './all.png' 1 2"
+  puts "(e.g): $ ruby #{$0} in_fig_dir/'*.png' './all.png' 1 2"
   puts "     : (yoko=>tate), n_yoko=2, all.png will be created."
   exit
 end
 
-in_fig_dir   = ARGV[0] # 入力画像ファイルが入ったディレクトリ
-out_fig_name = ARGV[1] # 出力画像名（拡張子なし）
-seq_type     = ARGV[2] # "1": yoko => tate, "2": tate => yoko
+in_fig_dir   = ARGV[0] # 入力画像ファイル名
+out_fig_name = ARGV[1] # 出力画像ファイル名
+seq_type     = ARGV[2] # 画像を並べる順番: "1": yoko => tate, "2": tate => yoko
 num          = ARGV[3].to_i # 横 or 縦に並べる画像の数
 
 files = Dir.glob("#{in_fig_dir}").sort # 結合する全ファイル
