@@ -20,7 +20,6 @@ files = Dir.glob("#{in_fig_dir}").sort # 結合する全ファイル
 puts "Input files are as follows:"
 p files
 
-
 tmp_dir = `mktemp -d tmp.XXXXXXXXXXXXXX`.chomp
 #system("mkdir -p #{tmp_dir}") if File.exists?( tmp_dir ) == false
 
