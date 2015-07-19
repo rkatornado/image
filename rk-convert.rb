@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
-#---- 画像ファイルを結合する
+#---- 連番の画像ファイルを結合し a × b  (横a枚, 縦b枚) の画像を作成するスクリプト
 if ARGV.size <= 3 then  
   puts "Usage: $ ruby #{$0} in_fig_dir out_fig_name seq_type nx_or_ny "
   puts "       seq_type: (1) yoko => tate, (2) tate => yoko"
