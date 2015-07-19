@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 #---- 連番の画像ファイルを結合し a × b  (横a枚, 縦b枚) の画像を作成するスクリプト
 if ARGV.size <= 3 then  
-  puts "Usage: $ ruby #{$0} in_fig_dir/*.png out_fig_name seq_type nx_or_ny "
+  puts "Usage: $ ruby #{$0} in_fig_dir/*.png out_fig_dir/out_fig_name seq_type nx_or_ny "
   puts "       seq_type: (1) yoko => tate, (2) tate => yoko"
-  puts "(e.g): $ ruby #{$0} 'in_fig_dir/*.png' all 1 2"
+  puts "(e.g): $ ruby #{$0} 'in_fig_dir/*.png' './all.png' 1 2"
   puts "     : (yoko=>tate), n_yoko=2, all.png will be created."
   exit
 end
@@ -14,19 +14,17 @@ out_fig_name = ARGV[1] # 出力画像名（拡張子なし）
 seq_type     = ARGV[2] # "1": yoko => tate, "2": tate => yoko
 num          = ARGV[3].to_i # 横 or 縦に並べる画像の数
 
-#fname = "*" # 結合するファイルをファイル名で選択したい場合はココを編集
-#files = Dir.glob("#{in_fig_dir}/#{fname}").sort # 結合する全ファイル
 files = Dir.glob("#{in_fig_dir}").sort # 結合する全ファイル
 puts "Input files are as follows:"
 p files
 
-tmp_dir = `mktemp -d tmp.XXXXXXXXXXXXXX`.chomp
-#system("mkdir -p #{tmp_dir}") if File.exists?( tmp_dir ) == false
+p out_fig_dir = File.dirname(out_fig_name)
+system("mkdir -p #{out_fig_dir}") if File.exists?( out_fig_dir ) == false
+
+tmp_dir = `mktemp -d tmp.XXXXXXXXXXXXXX`.chomp # 一時ディレクトリの作成
 
 ext_name = File.extname( files[0] ) # 画像ファイルの拡張子を取得
                                     # (全て同じ拡張子であることを想定して, 最初の1枚の拡張子を取得)
-
-fig_out = "#{out_fig_name}#{ext_name}" # 出力画像名（拡張子あり）
 
 n_max = files.size # 全画像数
 
@@ -52,7 +50,7 @@ if seq_type == "1" then
     end
   end
   
-  system("convert -append #{tmp_dir}/* #{fig_out}") # 縦方向に ny_max 枚の画像を結合
+  system("convert -append #{tmp_dir}/* #{out_fig_name}") # 縦方向に ny_max 枚の画像を結合
 
 elsif seq_type == "2" then
   nx_max = (n_max / num.to_f).ceil
@@ -76,15 +74,15 @@ elsif seq_type == "2" then
     end
   end
   
-  system("convert +append #{tmp_dir}/* #{fig_out}") # 横方向に nx_max 枚の画像を結合
+  system("convert +append #{tmp_dir}/* #{out_fig_name}") # 横方向に nx_max 枚の画像を結合
 
 end
 
 system( "rm -rf #{tmp_dir}")
 
-if File.exists?( fig_out ) == true then
-  puts "#{fig_out} has been created."
-#  system("open #{fig_out}")
+if File.exists?( out_fig_name ) == true then
+  puts "#{out_fig_name} has been created."
+#  system("open #{out_fig_name}")
 else 
   "Failed to create a figure. "
 end
