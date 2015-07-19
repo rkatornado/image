@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 #---- 連番の画像ファイルを結合し a × b  (横a枚, 縦b枚) の画像を作成するスクリプト
 if ARGV.size <= 3 then  
-  puts "Usage: $ ruby #{$0} in_fig_dir out_fig_name seq_type nx_or_ny "
+  puts "Usage: $ ruby #{$0} in_fig_dir/*.png out_fig_name seq_type nx_or_ny "
   puts "       seq_type: (1) yoko => tate, (2) tate => yoko"
-  puts "(e.g): $ ruby #{$0} in_fig_dir all 1 2"
-  puts "     : (yoko=>tate), n_yoko=2, all.extname will be created."
+  puts "(e.g): $ ruby #{$0} 'in_fig_dir/*.png' all 1 2"
+  puts "     : (yoko=>tate), n_yoko=2, all.png will be created."
   exit
 end
 
@@ -14,9 +14,9 @@ out_fig_name = ARGV[1] # 出力画像名（拡張子なし）
 seq_type     = ARGV[2] # "1": yoko => tate, "2": tate => yoko
 num          = ARGV[3].to_i # 横 or 縦に並べる画像の数
 
-fname = "*" # 結合するファイルをファイル名で選択したい場合はココを編集
-
-files = Dir.glob("#{in_fig_dir}/#{fname}").sort # 結合する全ファイル
+#fname = "*" # 結合するファイルをファイル名で選択したい場合はココを編集
+#files = Dir.glob("#{in_fig_dir}/#{fname}").sort # 結合する全ファイル
+files = Dir.glob("#{in_fig_dir}").sort # 結合する全ファイル
 puts "Input files are as follows:"
 p files
 
