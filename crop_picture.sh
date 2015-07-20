@@ -22,6 +22,8 @@ outdir="croped"
 
 # 切り出したい領域の設定
   # 切り出したい領域の決定には Mac の場合 ImageJ という無料ソフトが利用可能
+  # ImageJ: http://rsb.info.nih.gov/ij/
+    # Measure: http://www.hm6.aitai.ne.jp/~maxcat/imageJ/menus/analyze.html#measure
 # 切り出したい領域の横幅(単位: pixel)
 xsize=900
 
