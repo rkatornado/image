@@ -10,7 +10,7 @@
 if test $# -lt 1
 then
     echo "USAGE: ./crop_picture.sh [images]"
-    echo "   ex) ./crop_picture.sh inital/*png"
+    echo "   ex) ./crop_picture.sh fig_test_crop_picture_initial/*png"
     exit
 fi
 
