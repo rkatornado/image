@@ -2,6 +2,7 @@
 #
 # 任意領域を切り出すプログラム
 # Producted by Takashi Unuma, Kyoto Univ.
+# copied from https://github.com/TakashiUNUMA/UNUSH/MANIAC/picture_tool/crop_picture.sh
 # Modified by Ryohei Kato.
 # Last update: 2015/07/20
 #
