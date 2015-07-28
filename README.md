@@ -17,3 +17,11 @@
 ## crop_picture.sh
 * 任意領域を切り出すスクリプト
   * Thanks to 鵜沼くん（鵜沼くん作成の以下のコードを改変しました https://github.com/TakashiUNUMA/UNUSH/blob/master/MANIAC/picture_tool/crop_picture.sh)
+
+## rk-crop.rb
+* 任意領域を切り出すスクリプト(crop_picture.shの改良版)
+
+## rk-ffmpeg.rb
+* ffmpegで動画を作成するスクリプト（未完）
+
+
