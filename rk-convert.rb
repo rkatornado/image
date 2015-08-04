@@ -4,6 +4,7 @@
 if ARGV.size <= 3 then  
   puts "Usage: $ ruby #{$0} in_fig_dir/'*.png' out_fig_dir/out_fig_name seq_type nx_or_ny "
   puts "(e.g): $ ruby #{$0} in_fig_dir/'*.png' './all.png'                  1       2"
+  puts "(e.g): $ ruby #{$0} fig_test_rk-convert/'*.png' './all.png'         1       2"
   puts "     : (yoko=>tate), n_yoko=2, all.png will be created."
   puts "       seq_type: (1) yoko => tate, (2) tate => yoko"
   exit

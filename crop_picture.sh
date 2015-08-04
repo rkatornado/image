@@ -25,19 +25,25 @@ outdir="croped"
   # ImageJ: http://rsb.info.nih.gov/ij/
     # Measure: http://www.hm6.aitai.ne.jp/~maxcat/imageJ/menus/analyze.html#measure
 # 切り出したい領域の横幅(単位: pixel)
-xsize=900
+#xsize=900
+xsize=440
 
 # 切り出したい領域の縦幅(単位: pixel)
-ysize=400
+#ysize=400
+ysize=1030
 
 # 切り出したい領域の左上の点の横方向の位置(単位: pixel)
-xpoint=50
+#xpoint=50
+xpoint=600
 
 # 切り出したい領域の左上の点の縦方向の位置(単位: pixel)
-ypoint=200
+#ypoint=200
+ypoint=0
 
 # 回転角
-rotate=30
+#rotate=30
+rotate=-45
+#rotate=0
 
 # 出力形式(デフォルトでは、PNG形式で出力)
 suffics=png
