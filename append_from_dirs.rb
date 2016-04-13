@@ -62,8 +62,8 @@ for   i_f in 1..nf  # ファイル番号でループ
   fig_name_dir1 = File.basename(tmp)
   out_fig_name = "fig_CAT_#{ii_f}_#{fig_name_dir1}"
   out_fig = "#{out_fig_dir}/#{out_fig_name}"
-#  system("ruby rk-convert.rb #{in_file} #{out_fig} #{seq_type} #{num}") 
-  system("rk-convert #{in_file} #{out_fig} #{seq_type} #{num}") 
+  system("ruby rk-convert.rb #{in_file} #{out_fig} #{seq_type} #{num}") 
+#  system("rk-convert #{in_file} #{out_fig} #{seq_type} #{num}") # rk-convert という実行ファイルにパスを通している場合
 end
 
 system("rm FILELIST_DIRS*.txt FILELIST_CAT*.txt")
